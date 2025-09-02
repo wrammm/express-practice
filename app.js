@@ -7,6 +7,12 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
+app.use(
+  cors({
+    origin: 'https://wrammm.github.io',
+  })
+);
+
 // GET all jokes
 app.get('/jokes', async (req, res) => {
   const result = await db.query('SELECT * FROM jokes ORDER BY id DESC');
